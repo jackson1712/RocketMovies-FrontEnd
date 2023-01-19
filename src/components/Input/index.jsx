@@ -2,7 +2,7 @@ import { Container } from "./styles";
 
 export function Input({title}) {
     return(
-        <Container>
+        <Container placeholder="Pesquisar por título">
             {title}
         </Container>
 

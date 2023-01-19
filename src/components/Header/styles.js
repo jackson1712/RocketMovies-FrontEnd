@@ -4,6 +4,7 @@ export const Container = styled.header`
     grid-area: header;
     width: 100%;
     height: 116px;
+    position: fixed;
 
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
     display: flex;

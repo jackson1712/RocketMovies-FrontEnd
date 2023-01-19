@@ -27,6 +27,7 @@ export default createGlobalStyle`
         background-color: ${({ theme }) => theme.COLORS.PINK};
         border-radius: .8rem;
     }
+    
     }
 
     body, button, textarea, input {
