@@ -1,5 +1,7 @@
 import { Container, Content, Form } from "./styles";
 import { Header } from "../../components/Header";
+import { Section } from "../../components/Section";
+import { NoteItem } from "../../components/NoteItem";
 import { ButtonText } from "../../components/ButtonText";
 import { FiArrowLeft } from "react-icons/fi"
 
@@ -23,9 +25,14 @@ export function NewMovie() {
 
                 <textarea cols="3" rows="10" placeholder="Observações"></textarea>
 
-                <h2>Marcadores</h2>
-
+                <Section title="Marcadores">
+                    <div>
+                        <NoteItem value="React"/>
+                        <NoteItem isNew placeholder="Novo marcador"/>
+                    </div>
+                </Section>
                 
+                <ButtonText title="Excluir filme" />
             </Form>
             </Content>
         </Container>

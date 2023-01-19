@@ -4,15 +4,6 @@ export const Container = styled.div`
     display: grid;
     grid-template-areas:'header' 'content';
     grid-template-rows: 11.6rem auto;
-
-    > header {
-        display: flex;
-        align-items: center;
-
-        svg {
-            color: ${({ theme }) => theme.COLORS.PINK};
-        }
-    }
 `;
 
 export const Form = styled.form`
