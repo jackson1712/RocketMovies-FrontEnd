@@ -73,3 +73,14 @@ export const Content = styled.div`
         font-weight: 500;
     }
 `;
+
+export const Footer = styled.footer`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+    > button {
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+
+    }
+`;

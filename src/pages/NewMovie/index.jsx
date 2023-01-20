@@ -1,4 +1,4 @@
-import { Container, Content, Form } from "./styles";
+import { Container, Content, Form, Footer } from "./styles";
 import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
 import { NoteItem } from "../../components/NoteItem";
@@ -31,9 +31,12 @@ export function NewMovie() {
                         <NoteItem isNew placeholder="Novo marcador"/>
                     </div>
                 </Section>
-                
-                <ButtonText title="Excluir filme" />
             </Form>
+
+            <Footer>
+                <ButtonText title="Excluir nota"/>
+                <ButtonText title="Salvar alterações" />
+            </Footer>
             </Content>
         </Container>
     );
