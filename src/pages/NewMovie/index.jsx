@@ -34,8 +34,10 @@ export function NewMovie() {
             </Form>
 
             <Footer>
-                <ButtonText title="Excluir nota"/>
-                <ButtonText title="Salvar alterações" />
+                <div>
+                    <button>Excluir nota</button>
+                    <button className="button-save">Salvar alterações</button>
+                </div>
             </Footer>
             </Content>
         </Container>

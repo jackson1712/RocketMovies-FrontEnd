@@ -79,8 +79,25 @@ export const Footer = styled.footer`
     align-items: center;
     width: 100%;
     
-    > button {
-        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    
+    > div {
+        display: flex;
+        gap: 4rem;
+        width: 100%;
 
+        button{
+            color: ${({ theme }) => theme.COLORS.PINK};
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+            border: none;
+            width: 100%;
+            padding-top: 1.75rem;
+            padding-bottom: 1.75rem;
+            border-radius: 1rem;
+        }
+
+        .button-save {
+            color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+            background-color: ${({ theme }) => theme.COLORS.PINK};
+        }
     }
 `;
