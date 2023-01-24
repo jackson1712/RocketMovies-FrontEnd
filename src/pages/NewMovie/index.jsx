@@ -3,7 +3,7 @@ import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
 import { NoteItem } from "../../components/NoteItem";
 import { ButtonText } from "../../components/ButtonText";
-import { FiArrowLeft } from "react-icons/fi"
+import { FiArrowLeft } from "react-icons/fi";
 
 export function NewMovie() {
     return(

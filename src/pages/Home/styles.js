@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
-    grid-template-areas: 'header' 'auto';
+    grid-template-areas: 'header' 'content';
     grid-template-rows: 11.6rem auto;
-
 `;
 
 export const Content = styled.div`
     padding: 5rem 12.3rem 0;
     overflow-y: auto;
-
+    grid-area: content;
 
     > header {
         display: flex;

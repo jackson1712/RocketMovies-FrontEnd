@@ -1,9 +1,9 @@
 import { Container } from "./styles";
 
-export function Input({title}) {
+export function Input({icon: Icon, ...rest}) {
     return(
-        <Container placeholder="Pesquisar por título">
-            {title}
+        <Container {...rest}>
+            {Icon && <Icon size={20}/>}
         </Container>
 
     )

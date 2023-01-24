@@ -15,6 +15,10 @@ export const Container = styled.header`
     border-bottom-style: solid;
     border-bottom-color: ${({ theme }) => theme.COLORS.GRAY_200};
 
+    > input {
+        margin: 0 6.5rem;
+    }
+
     > h1 {
         color: ${({ theme }) => theme.COLORS.PINK};
     }
