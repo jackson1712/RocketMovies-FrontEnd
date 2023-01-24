@@ -2,13 +2,14 @@ import { FiArrowLeft, FiCamera } from "react-icons/fi";
 import { Container, Form, Avatar } from "./styles";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
+import { Link } from "react-router-dom";
 
 export function Profile() {
     return(
         <Container>
             <header>
                 <FiArrowLeft/>
-                <ButtonText title="Voltar" />
+                <Link to="/" className="return" >Voltar</Link>
             </header>
 
             <Form>

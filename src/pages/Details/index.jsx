@@ -3,8 +3,8 @@ import { RxStarFilled, RxStar } from 'react-icons/rx';
 import { TfiTime } from 'react-icons/tfi';
 import { Container, Content, Profile} from "./styles";
 import { Header } from "../../components/Header";
-import { ButtonText } from "../../components/ButtonText";
 import { Tag } from "../../components/Tag";
+import { Link } from 'react-router-dom';
 
 export function Details() {
     return(
@@ -14,7 +14,7 @@ export function Details() {
 
             <header>
             <FiArrowLeft/>
-            <ButtonText title="Voltar"/>
+            <Link to="/" className='return'>Voltar</Link>
             </header>
 
             <h1>

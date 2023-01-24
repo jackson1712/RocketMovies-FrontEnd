@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
     display: grid;
@@ -25,17 +26,16 @@ export const Content = styled.div`
     
 `;
 
-export const NewMovie = styled.button`
+export const NewMovie = styled(Link)`
     padding: 1.3rem 3.2rem;
     display: flex;
     align-items: center;
     gap: .8rem;
     background-color: ${({ theme }) => theme.COLORS.PINK};
     color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    border: none;
     border-radius: .8rem;
 
     > svg {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
 `;

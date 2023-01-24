@@ -4,7 +4,7 @@ import { Tag } from "../../components/Tag"
 
 export function Note() {
     return(
-            <Container>
+            <Container to="/details/:1">
                 <h2>Interestellar</h2>
 
                 <span>

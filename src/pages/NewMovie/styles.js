@@ -61,6 +61,11 @@ export const Content = styled.div`
         align-items: center;
         gap: .8rem;
 
+        > .return {
+            color: ${({ theme }) => theme.COLORS.PINK};
+            font-size: 1.6rem;
+        }
+
         svg {
             color: ${({ theme }) => theme.COLORS.PINK};
         }

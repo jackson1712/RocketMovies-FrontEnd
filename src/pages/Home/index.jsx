@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Container, NewMovie, Content } from "./styles";
 import { RxPlus } from "react-icons/rx";
 import { Header } from "../../components/Header";
@@ -12,7 +13,7 @@ export function Home() {
             <Content>
             <header>
                 <h1>Meus filmes</h1>
-                <NewMovie><RxPlus/>Adicionar filme</NewMovie>
+                <NewMovie to="/newmovie"><RxPlus/>Adicionar filme</NewMovie>
             </header>
 
             <Note/>

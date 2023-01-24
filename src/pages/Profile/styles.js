@@ -14,6 +14,10 @@ export const Container = styled.div`
         background-color: ${({ theme }) => theme.COLORS.PINK_LIGHT};
         gap: .8rem;
 
+        .return {
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
+
         svg {
             color: ${({ theme }) => theme.COLORS.PINK};
         }

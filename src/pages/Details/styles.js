@@ -32,6 +32,10 @@ export const Content = styled.div`
         align-items: center;
         margin-bottom: 2.4rem;
 
+        .return {
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
+
         > svg {
             color: ${({ theme }) => theme.COLORS.PINK};
             margin-right: 1rem;

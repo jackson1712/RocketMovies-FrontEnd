@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Container, Content, Form, Footer } from "./styles";
 import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
@@ -12,7 +13,7 @@ export function NewMovie() {
             <Content>
             <header>
             <FiArrowLeft/>
-            <ButtonText title="Voltar" />
+            <Link to="/" className="return">Voltar</Link>
             </header>
 
             <h1>Novo filme</h1>

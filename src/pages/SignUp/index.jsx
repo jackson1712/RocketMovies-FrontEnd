@@ -1,7 +1,7 @@
 import { Container, Form, Background } from "./styles";
+import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
 import { FiArrowLeft } from "react-icons/fi";
-import { ButtonText } from "../../components/ButtonText"
 
 export function SignUp() {
     return(
@@ -22,7 +22,7 @@ export function SignUp() {
 
                 <footer>
                 <FiArrowLeft/>
-                <ButtonText title="Voltar para o login"/>
+                <Link to="/" className="return">Voltar para login</Link>
                 </footer>
             </Form>
 
