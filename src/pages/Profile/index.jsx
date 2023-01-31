@@ -1,5 +1,7 @@
 import { FiArrowLeft, FiCamera } from "react-icons/fi";
+import { FiUser, FiMail, FiLock } from "react-icons/fi"
 import { Container, Form, Avatar } from "./styles";
+import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { Link } from "react-router-dom";
@@ -8,8 +10,7 @@ export function Profile() {
     return(
         <Container>
             <header>
-                <FiArrowLeft/>
-                <Link to="/" className="return" >Voltar</Link>
+                <ButtonText to="/" icon={FiArrowLeft} title="Voltar" />
             </header>
 
             <Form>
@@ -23,13 +24,14 @@ export function Profile() {
                     </label>
                 </Avatar>
 
+            <div className="inputs">
+            <Input icon={FiUser} type="text" placeholder="Usuário"/>
+            <Input icon={FiMail} className="user-space" type="text" placeholder="E-mail"/>
+            <Input icon={FiLock} type="password" placeholder="Senha atual"/>
+            <Input icon={FiLock} type="password" placeholder="Nova senha"/>
+            </div>
 
-            <Input type="text" placeholder="Usuário"/>
-            <Input className="user-space" type="text" placeholder="E-mail"/>
-            <Input type="password" placeholder="Senha atual"/>
-            <Input type="password" placeholder="Nova senha"/>
-
-            <ButtonText className="btn-save" title="Salvar"/>
+            <Button title="Salvar"/>
 
             </Form>
         </Container>

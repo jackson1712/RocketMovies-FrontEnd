@@ -10,6 +10,7 @@ export function Details() {
     return(
         <Container>
             <Header/>
+            <main>
             <Content>
 
             <header>
@@ -24,7 +25,7 @@ export function Details() {
             </h1>
             
             <Profile>
-                    <img src="https://github.com/jackson1712.png" alt="minha foto do perfil" />
+                    <img src="https://github.com/jackson1712.png" alt="foto do perfil" />
                     <span>Por Jackson Moura</span>
                     <span><TfiTime/>17/01/23 ás 17:00</span>
             </Profile>
@@ -55,20 +56,10 @@ export function Details() {
                 planetas se mostrar habitável, a humanidade irá seguir para ele na instalação
                 da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper
                 devasta Murphy.
-
-                Além de Cooper, a tripulação da Endurance é formada pela bióloga Amelia,
-                filha de Brand; o cientista Romilly, o físico planetário Doyle, além dos
-                robôs TARS e CASE. Eles entram no buraco de minhoca e se dirigem a Miller,
-                porém descobrem que o planeta possui enorme dilatação gravitacional temporal
-                por estar tão perto de Gargântua: cada hora na superfície equivale a sete
-                anos na Terra. Eles entram em Miller e descobrem que é inóspito já que é
-                coberto por um oceano raso e agitado por ondas enormes. Uma onda atinge a
-                tripulação enquanto Amelia tenta recuperar os dados de Miller, matando Doyle
-                e atrasando a partida. Ao voltarem para a Endurance, Cooper e Amelia descobrem
-                que 23 anos se passaram.
             </span>
 
             </Content>
+            </main>
         </Container>
     );
 }

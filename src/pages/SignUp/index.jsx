@@ -1,8 +1,9 @@
 import { Container, Form, Background } from "./styles";
-import { Link } from "react-router-dom";
 import { Input } from "../../components/Input";
-import { FiArrowLeft } from "react-icons/fi";
-
+import { FiArrowLeft, FiMail, FiLock, FiUser } from "react-icons/fi";
+import { ButtonText } from "../../components/ButtonText";
+import { Button } from "../../components/Button";
+ 
 export function SignUp() {
     return(
         <Container>
@@ -13,16 +14,15 @@ export function SignUp() {
                 <h2>Crie sua conta</h2>
 
                 <main>
-                <Input type="text" placeholder="Nome"/>
-                <Input type="text" placeholder="E-mail"/>
-                <Input type="password" placeholder="Senha"/>
+                <Input icon={FiUser} type="text" placeholder="Nome"/>
+                <Input icon={FiMail} type="text" placeholder="E-mail"/>
+                <Input icon={FiLock} type="password" placeholder="Senha"/>
                 </main>
 
-                <button>Cadastrar</button>
+                <Button title="Cadastrar" />
 
                 <footer>
-                <FiArrowLeft/>
-                <Link to="/" className="return">Voltar para login</Link>
+                <ButtonText icon={FiArrowLeft} title="Voltar para login" className="return"/>
                 </footer>
             </Form>
 

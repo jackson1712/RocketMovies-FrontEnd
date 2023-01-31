@@ -1,9 +1,9 @@
-import { Button } from "./styles";
+import { Container } from "./styles";
 
-export function Tag({ title }) {
+export function Tag({ title, value, ...rest }) {
     return(
-        <Button>
+        <Container {...rest}>
             {title}
-        </Button>
+        </Container>
     );
 }

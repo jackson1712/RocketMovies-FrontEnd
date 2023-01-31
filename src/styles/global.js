@@ -16,18 +16,6 @@ export default createGlobalStyle`
         color: ${({ theme }) => theme.COLORS.WHITE};
         font-size: 1.6rem;
         -webkit-font-smoothing: antialiased;
-
-        ::-webkit-scrollbar{
-        background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-        height: 9rem;
-        width: .8rem;
-    }
-    
-    ::-webkit-scrollbar-thumb{
-        background-color: ${({ theme }) => theme.COLORS.PINK};
-        border-radius: .8rem;
-    }
-    
     }
 
     body, button, textarea, input {

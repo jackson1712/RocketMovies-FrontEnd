@@ -5,16 +5,21 @@ export const Container = styled.div`
     height: 100vh;
     display: grid;
     grid-template-rows: 11.6rem auto;
-    grid-template-areas: 'header' 'content';
-    `;
+    grid-template-areas: "header" "content";
+
+    > main {
+        grid-area: content;
+        padding: 2rem 11.5rem;
+        overflow-y: auto;
+    }
+`;
 
 export const Content = styled.div`
-    grid-area: content;
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 4rem 12.5rem;
-    overflow-y: auto;
+    padding-right: 1rem;
+
 
     > h1 {
         display: flex;

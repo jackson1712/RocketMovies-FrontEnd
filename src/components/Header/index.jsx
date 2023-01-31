@@ -1,21 +1,25 @@
-import { Container, Profile } from "./styles";
+import { Container, Profile, Span } from "./styles";
 import { Input } from "../Input";
+import { Title } from "../Title";
 
 export function Header() {
     return(
         <Container>
-                <h1>RocketMovies</h1>
+                <Title title="RocketMovies"/>
                 <Input placeholder="Pesquisar por título"/>
-                <Profile to="/profile">
-                    <div>
+
+                <main>
+                    <Span>
                         <h2>Jackson Moura</h2>
-                        <button>sair</button>
-                    </div>
+                        <button type="button">Sair</button>
+                    </Span>
+                <Profile to="/profile">
                     <img 
                     src="https://github.com/jackson1712.png" 
-                    alt="minha imagem de perfil" 
+                    alt="imagem de perfil" 
                     />
                 </Profile>
+                </main>
         </Container>
     );
 }

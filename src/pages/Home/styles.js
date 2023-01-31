@@ -2,16 +2,20 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const Container = styled.div`
+    width: 100%;
+    height: 100vh;
     display: grid;
-    grid-template-areas: 'header' 'content';
     grid-template-rows: 11.6rem auto;
+    grid-template-areas: "header" "content";
+   
+    > main {
+        overflow-y: auto;
+        grid-area: content;
+        padding: 5rem 12.3rem 0;
+    }
 `;
 
 export const Content = styled.div`
-    padding: 5rem 12.3rem 0;
-    overflow-y: auto;
-    grid-area: content;
-
     > header {
         display: flex;
         justify-content: space-between;

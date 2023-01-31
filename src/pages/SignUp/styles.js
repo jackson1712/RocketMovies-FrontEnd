@@ -35,11 +35,9 @@ export const Form = styled.form`
 
     > button {
         width: 100%;
-        padding: 1.6rem;
         margin-bottom: 4.2rem;
 
         background-color: ${({ theme }) => theme.COLORS.PINK};
-        color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
 
         border-radius: 1rem;
         border: none;
@@ -57,23 +55,11 @@ export const Form = styled.form`
         gap: .8rem;
         margin-top: 4.8rem;
         margin-bottom: 1.6rem;
-    }
-
-    > footer {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: .8rem;
-
-        > .return {
-            color: ${({ theme }) => theme.COLORS.PINK};
-            font-size: 1.6rem;
-        }
 
         svg {
-            font-size: 2rem;
-            color: ${({ theme }) => theme.COLORS.PINK};
-        } 
+            color: ${({ theme }) => theme.COLORS.GRAY_300};
+            margin-left: 2rem;
+        }
     }
 `;
 

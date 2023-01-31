@@ -14,13 +14,14 @@ export const Container = styled.div`
         background-color: ${({ theme }) => theme.COLORS.PINK_LIGHT};
         gap: .8rem;
 
-        .return {
+        button {
             color: ${({ theme }) => theme.COLORS.PINK};
-        }
 
+        }
         svg {
             color: ${({ theme }) => theme.COLORS.PINK};
         }
+
     }
 `;
 
@@ -32,24 +33,21 @@ export const Form = styled.form`
     margin: 0 auto;
     gap: .8rem;
 
-    > .user-space {
-        margin-bottom: 1.6rem;
-    }
 
-    > .btn-save {
+    > .inputs{
         width: 100%;
-        background-color: ${({ theme }) => theme.COLORS.PINK};
-        color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+        div {
+            margin-bottom: .8rem;
+        }
+        
+        div:nth-child(3){
+            margin-top: 1.6rem;
+        }
 
-        width: 34rem;
-        padding-top: 1.4rem;
-        padding-bottom: 1.4rem;
-        margin-top: 1.6rem;
-        border-radius: 1rem;
-    }
-
-    > input {
-        width: 100%;
+        svg {
+            margin-left: 2rem;
+            color: ${({ theme }) => theme.COLORS.GRAY_300};
+        }
     }
 `;
 

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Container, NewMovie, Content } from "./styles";
 import { RxPlus } from "react-icons/rx";
 import { Header } from "../../components/Header";
@@ -7,9 +6,10 @@ import { Note } from "../../components/Note";
 export function Home() {
     return(
         <Container>
-    
-            <Header/>
 
+        <Header/>
+
+        <main>
             <Content>
             <header>
                 <h1>Meus filmes</h1>
@@ -18,9 +18,9 @@ export function Home() {
 
             <Note/>
             <Note/>
-            <Note/>
 
             </Content>
+        </main>
 
         </Container>
     )
