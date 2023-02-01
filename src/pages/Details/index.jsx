@@ -7,6 +7,7 @@ import { Tag } from "../../components/Tag";
 import { ButtonText } from "../../components/ButtonText";
 import { useNavigate } from 'react-router-dom';
 import { MovieTitle } from "../../components/MovieTitle";
+import { Stars } from '../../components/Stars';
 
 
 export function Details() {
@@ -28,7 +29,14 @@ export function Details() {
             onClick={handleBackHome}
             />
 
-            <MovieTitle title="Interestellar"/>
+            <header>
+            <MovieTitle title="Interestellar" />
+            <Stars icon={RxStarFilled}/>
+            <Stars icon={RxStarFilled}/>
+            <Stars icon={RxStarFilled}/>
+            <Stars icon={RxStarFilled}/>
+            <Stars icon={RxStar}/>
+            </header>
             
             <Profile>
                     <img src="https://github.com/jackson1712.png" alt="foto do perfil" />

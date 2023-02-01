@@ -11,6 +11,16 @@ export const Container = styled.div`
         grid-area: content;
         padding: 2rem 11.5rem;
         overflow-y: auto;
+
+        ::-webkit-scrollbar{
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+            width: .8rem;
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background-color: ${({ theme }) => theme.COLORS.PINK};
+            border-radius: 1rem;
+        }
     }
 `;
 
@@ -18,6 +28,14 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+
+    > header {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        margin-top: 2.4rem;
+        margin-bottom: 2.4rem;
+    }
 
     > div {
         padding-bottom: 4rem;
@@ -27,6 +45,9 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.GRAY_100};
         line-height: 2.1rem;
         text-align: justify;
+        box-shadow: 1rem 1rem 3rem -2rem pink;
+        border-radius: 1rem;
+        padding: 1rem;
     }
 `;
 
