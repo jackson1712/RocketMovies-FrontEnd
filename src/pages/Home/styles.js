@@ -9,9 +9,22 @@ export const Container = styled.div`
     grid-template-areas: "header" "content";
    
     > main {
+        overflow: hidden;
         overflow-y: auto;
+
         grid-area: content;
         padding: 5rem 12.3rem 0;
+
+        ::-webkit-scrollbar{
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+            width: .8rem;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background-color: ${({ theme }) => theme.COLORS.PINK};
+            border-radius: 1rem;
+        }
+
     }
 `;
 
@@ -26,7 +39,6 @@ export const Content = styled.div`
             font-weight: 400;
         }
     }
-
     
 `;
 

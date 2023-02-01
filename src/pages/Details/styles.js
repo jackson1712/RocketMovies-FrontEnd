@@ -18,34 +18,6 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-right: 1rem;
-
-
-    > h1 {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 2.4rem;
-
-        > svg {
-            color: ${({ theme }) => theme.COLORS.PINK};
-        }
-    }
-
-    > header {
-        display: flex;
-        align-items: center;
-        margin-bottom: 2.4rem;
-
-        .return {
-            color: ${({ theme }) => theme.COLORS.PINK};
-        }
-
-        > svg {
-            color: ${({ theme }) => theme.COLORS.PINK};
-            margin-right: 1rem;
-        }
-    }
 
     > div {
         padding-bottom: 4rem;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
     margin-bottom: 4rem;
+    width: 100%;
 
     > h2 {
     margin-bottom: 2.4rem;
@@ -13,7 +14,7 @@ export const Container = styled.section`
 
     > div {
         display: flex;
-        align-items: center;
+        flex-wrap: wrap;
         gap: 2.4rem;
         border-radius: .8rem;
         border: none;

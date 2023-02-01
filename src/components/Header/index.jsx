@@ -1,11 +1,11 @@
 import { Container, Profile, Span } from "./styles";
 import { Input } from "../Input";
-import { Title } from "../Title";
+import { TitlePage } from "../TitlePage";
 
 export function Header() {
     return(
         <Container>
-                <Title title="RocketMovies"/>
+                <TitlePage title="RocketMovies"/>
                 <Input placeholder="Pesquisar por título"/>
 
                 <main>

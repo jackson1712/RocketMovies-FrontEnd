@@ -1,9 +1,36 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    width: 100%;
+    height: 100vh;
+    
     display: grid;
-    grid-template-areas:'header' 'content';
+    grid-template-areas:'header' 'main';
     grid-template-rows: 11.6rem auto;
+
+    > main {
+        overflow-y: auto;
+        grid-area: main;
+        padding: 4rem 11.5rem;
+        width: 100%;
+        max-width: 128rem;
+        margin: 0 auto;
+
+        h1 {
+        margin-top: 2.4rem;
+        margin-bottom: 4rem;
+    }
+
+    ::-webkit-scrollbar{
+        background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+        width: .8rem;
+    }
+    
+    ::-webkit-scrollbar-thumb{
+        background-color: ${({ theme }) => theme.COLORS.PINK};
+        border-radius: .8rem;
+    }
+    }
 `;
 
 export const Form = styled.form`
@@ -36,7 +63,7 @@ export const Form = styled.form`
 
         resize: none;
 
-        ::-webkit-scrollbar{
+    ::-webkit-scrollbar{
         background: ${({ theme }) => theme.COLORS.BACKGROUND_900};
         height: 9rem;
         width: .8rem;
@@ -48,61 +75,13 @@ export const Form = styled.form`
     }
     }
 
-`;
-
-export const Content = styled.div`
-    width: 100%;
-    padding: 4rem 11.5rem;
-    overflow-y: auto;
-    grid-area: content;
-
-    > header {
-        display: flex;
-        align-items: center;
-        gap: .8rem;
-
-        > .return {
-            color: ${({ theme }) => theme.COLORS.PINK};
-            font-size: 1.6rem;
-        }
-
-        svg {
-            color: ${({ theme }) => theme.COLORS.PINK};
-        }
-    }
-
-    > h1 {
-        margin-top: 2.4rem;
-        margin-bottom: 4rem;
-        font-size: 3.6rem;
-        font-weight: 500;
-    }
-`;
-
-export const Footer = styled.footer`
-    display: flex;
-    align-items: center;
-    width: 100%;
-    
-    
-    > div {
+    > footer {
         display: flex;
         gap: 4rem;
-        width: 100%;
 
-        button{
-            color: ${({ theme }) => theme.COLORS.PINK};
+        button:nth-child(1){
             background-color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
-            border: none;
-            width: 100%;
-            padding-top: 1.75rem;
-            padding-bottom: 1.75rem;
-            border-radius: 1rem;
-        }
-
-        .button-save {
-            color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
-            background-color: ${({ theme }) => theme.COLORS.PINK};
+            color: ${({ theme }) => theme.COLORS.PINK};
         }
     }
 `;

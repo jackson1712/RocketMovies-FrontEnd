@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
+    padding: 1.6rem;
     
     background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BACKGROUND_900};
     color: ${({ theme }) => theme.COLORS.WHITE};
@@ -13,12 +14,10 @@ export const Container = styled.div`
         border: none;
         background: none;
         color: ${({ theme }) =>  theme.COLORS.PINK};
-        padding: 1.6rem;
     }
 
     > input {
         background-color: transparent;
-        padding: 1.6rem;
         color: ${({ theme }) => theme.COLORS.WHITE};
         border: none;
     }

@@ -4,25 +4,31 @@ import { TfiTime } from 'react-icons/tfi';
 import { Container, Content, Profile} from "./styles";
 import { Header } from "../../components/Header";
 import { Tag } from "../../components/Tag";
-import { Link } from 'react-router-dom';
+import { ButtonText } from "../../components/ButtonText";
+import { useNavigate } from 'react-router-dom';
+import { MovieTitle } from "../../components/MovieTitle";
+
 
 export function Details() {
+    const navigate = useNavigate();
+
+    function handleBackHome() {
+        return navigate(-1)
+    }
+
     return(
         <Container>
             <Header/>
             <main>
             <Content>
 
-            <header>
-            <FiArrowLeft/>
-            <Link to="/" className='return'>Voltar</Link>
-            </header>
+            <ButtonText 
+            icon={FiArrowLeft} 
+            title="Voltar"
+            onClick={handleBackHome}
+            />
 
-            <h1>
-                Interestellar
-                <RxStarFilled/><RxStarFilled/><RxStarFilled/><RxStarFilled/>
-                <RxStar/>
-            </h1>
+            <MovieTitle title="Interestellar"/>
             
             <Profile>
                     <img src="https://github.com/jackson1712.png" alt="foto do perfil" />

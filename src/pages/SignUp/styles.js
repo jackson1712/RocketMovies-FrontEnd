@@ -43,11 +43,6 @@ export const Form = styled.form`
         border: none;
     }
 
-    > input {
-        width: 100%;
-        
-    }
-
     > main {
         display: flex;
         width: 100%;
@@ -59,6 +54,12 @@ export const Form = styled.form`
         svg {
             color: ${({ theme }) => theme.COLORS.GRAY_300};
             margin-left: 2rem;
+        }
+    }
+
+    > footer {
+        button {
+            justify-content: center;
         }
     }
 `;

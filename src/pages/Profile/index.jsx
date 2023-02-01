@@ -4,13 +4,23 @@ import { Container, Form, Avatar } from "./styles";
 import { Button } from "../../components/Button";
 import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export function Profile() {
+    const navigate = useNavigate(-1)
+    function handleBackSignIn(){
+        return navigate(-1)
+    }
+
+
     return(
         <Container>
             <header>
-                <ButtonText to="/" icon={FiArrowLeft} title="Voltar" />
+                <ButtonText 
+                icon={FiArrowLeft} 
+                title="Voltar" 
+                onClick={handleBackSignIn}
+                />
             </header>
 
             <Form>

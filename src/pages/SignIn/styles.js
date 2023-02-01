@@ -6,9 +6,7 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    
-    align-items: stretch;
-    `;
+`;
 
 export const Form = styled.form`
     display: flex;
