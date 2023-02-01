@@ -59,7 +59,7 @@ export const Form = styled.form`
 
     > footer {
         button {
-            justify-content: center;
+            margin: 0 auto;
         }
     }
 `;

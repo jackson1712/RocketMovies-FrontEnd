@@ -11,6 +11,8 @@ export const Container = styled.div`
     > main {
         overflow: hidden;
         overflow-y: auto;
+        max-width: 128rem;
+        margin: 0 auto;
 
         grid-area: content;
         padding: 5rem 12.3rem 0;
@@ -40,6 +42,26 @@ export const Content = styled.div`
         }
     }
     
+`;
+
+export const Menu = styled.span`
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+
+    > li {
+        text-decoration: none;
+        list-style: none;
+
+        button {
+            background-color: ${({ theme }) => theme.COLORS.PINK_LIGHT};
+            padding: .3rem 1rem;
+            border-radius: .8rem;
+            font-weight: 700;
+        }
+    }
 `;
 
 export const NewMovie = styled(Link)`

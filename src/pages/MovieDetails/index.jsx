@@ -10,7 +10,7 @@ import { MovieTitle } from "../../components/MovieTitle";
 import { Stars } from '../../components/Stars';
 
 
-export function Details() {
+export function MovieDetails() {
     const navigate = useNavigate();
 
     function handleBackHome() {
@@ -69,9 +69,10 @@ export function Details() {
                 nave espacial Endurance e recuperar os dados dos astronautas; se um dos
                 planetas se mostrar habitável, a humanidade irá seguir para ele na instalação
                 da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper
-                devasta Murphy.
+                devasta Murphy.    
             </span>
 
+            <ButtonText title="Excluir filme"/>
             </Content>
             </main>
         </Container>

@@ -3,14 +3,10 @@ import styled from "styled-components";
 export const Container = styled.button`
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 2rem;
 
     gap: .8rem;
-    color: ${({ theme }) => theme.COLORS.PINK};
+    color: ${({ theme, isActive }) => isActive ? theme.COLORS.PINK : theme.COLORS.GRAY_100};
     border: none;
     background: none;
-    
-    > svg {
-        color: ${({ theme }) => theme.COLORS.PINK};
-    }
 `;

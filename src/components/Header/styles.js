@@ -25,6 +25,10 @@ export const Container = styled.header`
         display: flex;
         align-items: center;
     }
+
+    > div {
+        padding-left: 1rem;
+    }
 `;
 
 export const Span = styled.span`

@@ -11,6 +11,8 @@ export const Container = styled.div`
         grid-area: content;
         padding: 2rem 11.5rem;
         overflow-y: auto;
+        max-width: 128rem;
+        margin: 0 auto;
 
         ::-webkit-scrollbar{
             background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
@@ -45,9 +47,21 @@ export const Content = styled.div`
         color: ${({ theme }) => theme.COLORS.GRAY_100};
         line-height: 2.1rem;
         text-align: justify;
-        box-shadow: 1rem 1rem 3rem -2rem pink;
+        overflow-wrap: break-word;
+        box-shadow: 0rem 0rem 2.5rem -2rem pink;
         border-radius: 1rem;
         padding: 1rem;
+    }
+
+    > button:first-child{
+        background: none;
+        width: 8rem;
+    }
+
+    > button:last-child {
+        margin: 7rem auto 0;
+        background: none;
+        font-weight: 500;
     }
 `;
 
