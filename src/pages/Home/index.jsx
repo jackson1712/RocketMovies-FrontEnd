@@ -25,8 +25,14 @@ export function Home() {
             <li><ButtonTag title="Ação"/></li>
             </Menu>
 
-            <Note/>
-            <Note/>
+            <Note data={{
+                title: 'Interestellar',
+                tags: [
+                    { id: '1', name: 'Nodejs' },
+                    { id: '2', name: 'React' }
+                ]
+                }}
+            />
 
             </Content>
         </main>

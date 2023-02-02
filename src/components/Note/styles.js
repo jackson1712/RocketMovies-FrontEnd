@@ -18,7 +18,6 @@ export const Container = styled(Link)`
         }
 
         svg {
-            color: ${({ theme }) => theme.COLORS.PINK};
             margin-right: .6rem;
             margin-bottom: 1.5rem;
         }
@@ -27,6 +26,12 @@ export const Container = styled(Link)`
             color: ${({ theme }) => theme.COLORS.GRAY_400};
             margin-bottom: 2.5rem;
             text-align: justify;
+        }
+
+        > footer {
+            gap: 1rem;
+            display: flex;
+            flex-wrap: wrap;
         }
 `;
 

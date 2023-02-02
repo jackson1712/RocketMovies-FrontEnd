@@ -1,5 +1,4 @@
 import { FiArrowLeft } from 'react-icons/fi';
-import { RxStarFilled, RxStar } from 'react-icons/rx';
 import { TfiTime } from 'react-icons/tfi';
 import { Container, Content, Profile} from "./styles";
 import { Header } from "../../components/Header";
@@ -8,6 +7,7 @@ import { ButtonText } from "../../components/ButtonText";
 import { useNavigate } from 'react-router-dom';
 import { MovieTitle } from "../../components/MovieTitle";
 import { Stars } from '../../components/Stars';
+import { Rating } from '../../components/Rating';
 
 
 export function MovieDetails() {
@@ -31,11 +31,7 @@ export function MovieDetails() {
 
             <header>
             <MovieTitle title="Interestellar" />
-            <Stars icon={RxStarFilled}/>
-            <Stars icon={RxStarFilled}/>
-            <Stars icon={RxStarFilled}/>
-            <Stars icon={RxStarFilled}/>
-            <Stars icon={RxStar}/>
+            <Rating grade={5} />
             </header>
             
             <Profile>
@@ -50,7 +46,7 @@ export function MovieDetails() {
             <Tag title="Ação"/>
             </div>
 
-            <span>
+            <p>
                 Pragas nas colheitas fizeram a civilização humana regredir
                 para uma sociedade agrária em futuro de data desconhecida.
                 Cooper, ex-piloto da NASA, tem uma fazenda com sua família.
@@ -70,7 +66,7 @@ export function MovieDetails() {
                 planetas se mostrar habitável, a humanidade irá seguir para ele na instalação
                 da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper
                 devasta Murphy.    
-            </span>
+            </p>
 
             <ButtonText title="Excluir filme"/>
             </Content>

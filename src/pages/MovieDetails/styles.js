@@ -37,13 +37,17 @@ export const Content = styled.div`
         align-items: center;
         margin-top: 2.4rem;
         margin-bottom: 2.4rem;
+
+        svg {
+            font-size: 3rem;
+        }
     }
 
     > div {
         padding-bottom: 4rem;
     }
 
-    > span {
+    > p {
         color: ${({ theme }) => theme.COLORS.GRAY_100};
         line-height: 2.1rem;
         text-align: justify;
@@ -51,6 +55,11 @@ export const Content = styled.div`
         box-shadow: 0rem 0rem 2.5rem -2rem pink;
         border-radius: 1rem;
         padding: 1rem;
+    }
+
+    > p:hover {
+        transition: .4s;
+        scale: 1.1;
     }
 
     > button:first-child{

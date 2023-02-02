@@ -1,19 +1,12 @@
-import { RxStarFilled, RxStar } from 'react-icons/rx';
 import { Container } from "./styles";
-import { Tag } from "../../components/Tag"
+import { Tag } from "../Tag";
+import { Rating } from "../Rating";
 
-export function Note() {
+export function Note({data, ...rest}) {
     return(
-            <Container to="/details/:1">
-                <h2>Interestellar</h2>
-
-                <span>
-                    <RxStarFilled/>
-                    <RxStarFilled/>
-                    <RxStarFilled/>
-                    <RxStarFilled/>
-                    <RxStar/>
-                </span>
+            <Container to="/details/:1" {...rest} >
+                <h2>{data.title}</h2>
+                <Rating grade={5} />
 
                 <p>
                 Pragas nas colheitas fizeram a civilização humana regredir
@@ -23,11 +16,14 @@ export function Note() {
                 está assombrado por um fantasma que tenta se...
                 </p>
 
-                <div>           
-                <Tag title="Ficção científica"/>
-                <Tag title="Ficção científica"/>
-                <Tag title="Ficção científica"/>
-                </div>
+                {
+                data.tags &&
+                <footer>
+                    {
+                        data.tags.map(tag => <Tag key={tag.id} title={tag.name}/>)
+                    }
+                </footer>
+                }
 
             </Container>
     )
