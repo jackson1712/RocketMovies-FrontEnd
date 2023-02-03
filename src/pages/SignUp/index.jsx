@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
 import { FiArrowLeft, FiMail, FiLock, FiUser } from "react-icons/fi";
@@ -6,6 +8,8 @@ import { Button } from "../../components/Button";
 import { useNavigate } from "react-router-dom";
  
 export function SignUp() {
+    const [] = useState("");
+
     const navigate = useNavigate();
 
     function handleBackSignIn() {
@@ -21,9 +25,24 @@ export function SignUp() {
                 <h2>Crie sua conta</h2>
 
                 <main>
-                <Input icon={FiUser} type="text" placeholder="Nome"/>
-                <Input icon={FiMail} type="text" placeholder="E-mail"/>
-                <Input icon={FiLock} type="password" placeholder="Senha"/>
+                <Input 
+                icon={FiUser} 
+                type="text" 
+                placeholder="Nome"
+                />
+
+                <Input 
+                icon={FiMail} 
+                type="text" 
+                placeholder="E-mail"
+                />
+
+                <Input 
+                icon={FiLock}
+                type="password" 
+                placeholder="Senha"
+                />
+
                 </main>
 
                 <Button title="Cadastrar" />
