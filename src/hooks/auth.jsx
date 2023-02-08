@@ -35,8 +35,9 @@ function AuthProvider({ children }) {
     setData({});
   }
 
-  async function updateProfile({ user, avatarFile }) {
+  async function updatedProfile({ user, avatarFile }) {
     try{
+      
       if(avatarFile) {
         const fileUploadForm = new FormData();
         fileUploadForm.append("avatar", avatarFile);
@@ -79,7 +80,7 @@ function AuthProvider({ children }) {
       value={{ 
         signIn, 
         signOut,
-        updateProfile,
+        updatedProfile,
         user: data.user
         }}
         >

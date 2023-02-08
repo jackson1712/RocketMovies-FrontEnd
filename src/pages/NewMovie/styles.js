@@ -8,6 +8,25 @@ export const Container = styled.div`
     grid-template-areas:'header' 'main';
     grid-template-rows: 11.6rem auto;
 
+    > header {
+
+        input {
+        height: 5.6rem;
+        max-width: 50rem;
+        flex: 1;
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+        border: none;
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        padding-left: 2rem;
+        border-radius: 1rem;
+        margin: 0 1rem;
+
+            &::placeholder {  
+                color: ${({ theme }) => theme.COLORS.GRAY_300};
+            }
+        }
+    }
+
     > main {
         overflow-y: auto;
         grid-area: main;

@@ -13,26 +13,29 @@ import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 import { api } from "../../services/api";
 
 export function Profile() {
-    const { user, updateProfile } = useAuth();
+    const { user, updatedProfile } = useAuth();
 
     const [name, setName] = useState(user.name);
     const [email, setEmail] = useState(user.email);
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
 
-    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+
     const [avatar, setAvatar] = useState(avatarUrl);
     const [avatarFile, setAvatarFile] = useState(null);
 
     async function handleUpdate() {
-        const user = {
+        const updated = {
             name,
             email,
             old_password: oldPassword,
             password: newPassword
-        }
+        };
 
-        await updateProfile({ user, avatarFile });
+        const userUpdated = Object.assign(user, updated);
+
+        await updatedProfile({ user: userUpdated, avatarFile });
     }
 
     function handleChangeAvatar(event) {
@@ -63,7 +66,7 @@ export function Profile() {
             <Form>
                 <Avatar>
                     <img 
-                    src={avatarUrl}
+                    src={avatar}
                     alt="minha imagem de perfil" />
 
                     <label htmlFor="avatar">

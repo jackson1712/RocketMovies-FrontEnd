@@ -3,19 +3,23 @@ import { useAuth } from '../../hooks/auth';
 
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
-import { FiArrowLeft, FiTrash2 } from 'react-icons/fi';
+import { FiArrowLeft, FiTrash2, FiBookOpen, FiCornerRightDown } from 'react-icons/fi';
 import { TfiTime } from 'react-icons/tfi';
 import { Container, Content, Profile} from "./styles";
 import { Header } from "../../components/Header";
 import { Tag } from "../../components/Tag";
 import { ButtonText } from "../../components/ButtonText";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { MovieTitle } from "../../components/MovieTitle";
 import { Rating } from '../../components/Rating';
+import { useState, useEffect } from 'react';
 
 
 
 export function MovieDetails() {
+    const [data, setData] = useState(null);
+    const params = useParams();
+
     const { user } = useAuth();
 
     const navigate = useNavigate();
@@ -25,9 +29,33 @@ export function MovieDetails() {
         return navigate(-1)
     }
 
+    async function handleDelete() {
+        const confirm = window.confirm("Tem certeza que deseja excluir o filme ?")
+
+        if(confirm) {
+            await api.delete(`/movie_notes/${params.id}`);
+            handleBackHome();
+        }
+    }
+
+    useEffect(() => {
+        async function fetchMovie() {
+            const response = await api.get(`/movie_notes/${params.id}`)
+
+            setData(response.data);
+        }
+        fetchMovie();
+    }, [])
+
+
     return(
         <Container>
-            <Header/>
+            <Header>
+                <input type="text" placeholder='Pesquisar por título' />
+            </Header>
+
+            {
+                data &&
             <main>
             <Content>
 
@@ -38,47 +66,40 @@ export function MovieDetails() {
             />
 
             <header>
-            <MovieTitle title="Interestellar" />
-            <Rating grade={user.rating} />
+            <MovieTitle title={data.title} />
+            <Rating grade={data.rating} />
             </header>
             
             <Profile>
                     <img src={avatarUrl} alt="foto do perfil" />
                     <strong>{`By : ${user.name}`}</strong>
-                    <span><TfiTime/> {console.log(user.updated_at)} </span>
+                    <span><TfiTime/>{data.updated_at}</span>
             </Profile>
 
-            <div>
-            <Tag title="Ficção cientifica"/>
-            <Tag title="Drama"/>
-            <Tag title="Ação"/>
-            </div>
+                {
+                data.movietags &&
+                <div>
+                    { 
+                    data.movietags.map(tag => (
+                        <Tag 
+                        key={String(tag.id)}
+                        title={tag.name}
+                        />
+                    ))
+                    }
+                </div>
+                }
+            <span><FiBookOpen/> Resumo do filme <FiCornerRightDown/></span>
+            <p>{data.description}</p>
 
-            <p>
-                Pragas nas colheitas fizeram a civilização humana regredir
-                para uma sociedade agrária em futuro de data desconhecida.
-                Cooper, ex-piloto da NASA, tem uma fazenda com sua família.
-                Murphy, a filha de dez anos de Cooper, acredita que seu quarto
-                está assombrado por um fantasma que tenta se comunicar com ela.
-                Pai e filha descobrem que o "fantasma" é uma inteligência
-                desconhecida que está enviando mensagens codificadas através
-                de radiação gravitacional, deixando coordenadas em binário que
-                os levam até uma instalação secreta da NASA liderada pelo professor
-                John Brand. O cientista revela que um buraco de minhoca foi aberto
-                perto de Saturno e que ele leva a planetas que podem oferecer condições
-                de sobrevivência para a espécie humana. As "missões Lázaro" enviadas
-                anos antes identificaram três planetas potencialmente habitáveis orbitando
-                o buraco negro Gargântua: Miller, Edmunds e Mann – nomeados em homenagem
-                aos astronautas que os pesquisaram. Brand recruta Cooper para pilotar a
-                nave espacial Endurance e recuperar os dados dos astronautas; se um dos
-                planetas se mostrar habitável, a humanidade irá seguir para ele na instalação
-                da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper
-                devasta Murphy.
-            </p>
-
-            <ButtonText icon={FiTrash2} title="Excluir filme"/>
+            <ButtonText 
+            icon={FiTrash2} 
+            title="Excluir filme"
+            onClick={handleDelete}
+            />
             </Content>
             </main>
+            }
         </Container>
     );
 }

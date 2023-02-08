@@ -7,8 +7,28 @@ export const Container = styled.div`
     display: grid;
     grid-template-rows: 11.6rem auto;
     grid-template-areas: "header" "content";
+
+    > header {
+
+        input {
+        height: 5.6rem;
+        max-width: 50rem;
+        flex: 1;
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+        border: none;
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        padding-left: 2rem;
+        border-radius: 1rem;
+        margin: 0 1rem;
+        
+        &::placeholder {  
+            color: ${({ theme }) => theme.COLORS.GRAY_300};
+        }
+        }
+    }
    
     > main {
+        width: 100%;
         overflow: hidden;
         overflow-y: auto;
         max-width: 128rem;
@@ -16,6 +36,7 @@ export const Container = styled.div`
 
         grid-area: content;
         padding: 5rem 12.3rem 0;
+
 
         ::-webkit-scrollbar{
             background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
@@ -39,6 +60,25 @@ export const Content = styled.div`
         > h1 {
             font-size: 3.2rem;
             font-weight: 400;
+        }
+    }
+    
+    > div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10rem;
+        gap: 2rem;
+
+        border-style: solid;
+        border-width: 3px;
+        border-color: ${({ theme }) => theme.COLORS.PINK};
+        border-radius: 1rem;
+        padding: 5rem;
+
+        svg {
+            font-size: 7rem;
         }
     }
     

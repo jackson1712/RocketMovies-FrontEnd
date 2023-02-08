@@ -7,7 +7,27 @@ export const Container = styled.div`
     grid-template-rows: 11.6rem auto;
     grid-template-areas: "header" "content";
 
+    > header {
+
+        input {
+        height: 5.6rem;
+        max-width: 50rem;
+        flex: 1;
+        background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+        border: none;
+        color: ${({ theme }) => theme.COLORS.WHITE};
+        padding-left: 2rem;
+        border-radius: 1rem;
+        margin: 0 1rem;
+
+            &::placeholder {  
+                color: ${({ theme }) => theme.COLORS.GRAY_300};
+            }
+        }
+    }
+
     > main {
+        width: 100%;
         grid-area: content;
         padding: 2rem 11.5rem;
         overflow-y: auto;
@@ -73,6 +93,14 @@ export const Content = styled.div`
         margin: 7rem auto 0;
         background: none;
         font-weight: 500;
+    }
+
+    > span {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        color: ${({ theme }) => theme.COLORS.PINK};
     }
 `;
 

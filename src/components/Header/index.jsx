@@ -6,7 +6,8 @@ import { api } from "../../services/api";
 
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
-export function Header() {
+export function Header({children}) {
+
     const { signOut, user } = useAuth();
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
@@ -17,11 +18,11 @@ export function Header() {
         }
     }
 
+
     return(
         <Container>
                 <TitlePage title="RocketMovies"/>
-                <Input placeholder="Pesquisar por título"/>
-
+                {children}
                 <main>
                     <Span>
                         <h2>{user.name}</h2>

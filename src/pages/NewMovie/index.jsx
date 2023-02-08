@@ -20,7 +20,7 @@ export function NewMovie() {
     const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
 
-    function handleAddLink() {
+    function handleAddTag() {
         if(!newTag) {
             return alert("Não é possível adicionar tag vazia!")
         }
@@ -43,8 +43,8 @@ export function NewMovie() {
             return alert("O último campo de tags está incompleto, adicione o campo ou deixo-o vazio para completar.")
         }
         
-        if(rating > 5 || rating < 0) {
-            return alert("A nota precisa estar entre 0 e 5")
+        if(rating > 5 || rating <= 0) {
+            return alert("A nota precisa estar entre 1 e 5")
         }
 
         if(!title || !description || !rating) {
@@ -69,7 +69,9 @@ export function NewMovie() {
 
     return(
         <Container>
-            <Header/>
+            <Header>
+                <input type="text" placeholder="Pesquisar por título" />
+            </Header>
 
             <main>
             <ButtonText 
@@ -91,7 +93,7 @@ export function NewMovie() {
 
                 <Input 
                 type="number" 
-                placeholder="Sua nota (entre 0 e 5)"
+                placeholder="Sua nota (entre 1 e 5)"
                 onChange={e => setRating(e.target.value)}
                 
                 />
@@ -121,7 +123,7 @@ export function NewMovie() {
                         value={newTag}
                         placeholder="Novo Marcador"
                         onChange={e => setNewTag(e.target.value)}
-                        onClick={handleAddLink}
+                        onClick={handleAddTag}
                         />
 
                     </div>

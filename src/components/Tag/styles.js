@@ -8,5 +8,5 @@ export const Container = styled.span`
     font-family: 'Roboto', 'serif';
     padding: .8rem 1.6rem;
     border-radius: .8rem;
-    margin-right: 2.4rem;
+    margin-right: 1rem;
 `;
