@@ -2,9 +2,13 @@ import { Container, Profile, Span } from "./styles";
 import { Input } from "../Input";
 import { TitlePage } from "../TitlePage";
 import { useAuth } from "../../hooks/auth";
+import { api } from "../../services/api";
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Header() {
-    const { signOut } = useAuth();
+    const { signOut, user } = useAuth();
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
     function handleLogout() {
     const confirm = window.confirm("Tem certeza que deseja sair ?")
@@ -20,12 +24,12 @@ export function Header() {
 
                 <main>
                     <Span>
-                        <h2>Jackson Moura</h2>
+                        <h2>{user.name}</h2>
                         <button type="button" onClick={handleLogout}>Sair</button>
                     </Span>
                 <Profile to="/profile">
                     <img 
-                    src="https://github.com/jackson1712.png" 
+                    src={avatarUrl}
                     alt="imagem de perfil" 
                     />
                 </Profile>

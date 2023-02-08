@@ -1,4 +1,9 @@
-import { FiArrowLeft } from 'react-icons/fi';
+import { api } from '../../services/api';
+import { useAuth } from '../../hooks/auth';
+
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+
+import { FiArrowLeft, FiTrash2 } from 'react-icons/fi';
 import { TfiTime } from 'react-icons/tfi';
 import { Container, Content, Profile} from "./styles";
 import { Header } from "../../components/Header";
@@ -6,12 +11,15 @@ import { Tag } from "../../components/Tag";
 import { ButtonText } from "../../components/ButtonText";
 import { useNavigate } from 'react-router-dom';
 import { MovieTitle } from "../../components/MovieTitle";
-import { Stars } from '../../components/Stars';
 import { Rating } from '../../components/Rating';
 
 
+
 export function MovieDetails() {
+    const { user } = useAuth();
+
     const navigate = useNavigate();
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
     function handleBackHome() {
         return navigate(-1)
@@ -31,13 +39,13 @@ export function MovieDetails() {
 
             <header>
             <MovieTitle title="Interestellar" />
-            <Rating grade={5} />
+            <Rating grade={user.rating} />
             </header>
             
             <Profile>
-                    <img src="https://github.com/jackson1712.png" alt="foto do perfil" />
-                    <span>Por Jackson Moura</span>
-                    <span><TfiTime/>17/01/23 ás 17:00</span>
+                    <img src={avatarUrl} alt="foto do perfil" />
+                    <strong>{`By : ${user.name}`}</strong>
+                    <span><TfiTime/> {console.log(user.updated_at)} </span>
             </Profile>
 
             <div>
@@ -65,10 +73,10 @@ export function MovieDetails() {
                 nave espacial Endurance e recuperar os dados dos astronautas; se um dos
                 planetas se mostrar habitável, a humanidade irá seguir para ele na instalação
                 da NASA, que é na realidade uma enorme estação espacial. A partida de Cooper
-                devasta Murphy.    
+                devasta Murphy.
             </p>
 
-            <ButtonText title="Excluir filme"/>
+            <ButtonText icon={FiTrash2} title="Excluir filme"/>
             </Content>
             </main>
         </Container>

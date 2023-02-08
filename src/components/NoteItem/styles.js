@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     padding: 1.6rem;
+    gap: .5rem;
     
     background-color: ${({ theme, isNew }) => isNew ? "transparent" : theme.COLORS.BACKGROUND_900};
     color: ${({ theme }) => theme.COLORS.WHITE};

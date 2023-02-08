@@ -55,6 +55,8 @@ export const Content = styled.div`
         box-shadow: 0rem 0rem 2.5rem -2rem pink;
         border-radius: 1rem;
         padding: 1rem;
+        overflow: scroll;
+        max-height: 25rem;
     }
 
     > p:hover {

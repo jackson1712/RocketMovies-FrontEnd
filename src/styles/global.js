@@ -18,10 +18,19 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
     }
 
-    body, button, textarea, input {
+    body, button, textarea, input, p {
         font-family: 'Roboto Slab', serif;
         font-size: 1.6rem;
         outline: none;
+        ::-webkit-scrollbar{
+            background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+            width: .8rem;
+        }
+        
+        ::-webkit-scrollbar-thumb{
+            background-color: ${({ theme }) => theme.COLORS.PINK};
+            border-radius: 1rem;
+        }
     }
 
     a {
