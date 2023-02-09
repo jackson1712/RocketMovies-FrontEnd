@@ -43,18 +43,18 @@ export function NewMovie() {
             return alert("O último campo de tags está incompleto, adicione o campo ou deixo-o vazio para completar.")
         }
         
-        if(rating > 5 || rating <= 0) {
-            return alert("A nota precisa estar entre 1 e 5")
-        }
-
+        
         if(!title || !description || !rating) {
             return alert("Complete todos os campos para poder salvar as anotações.")
         }
-
+        
         if(tags.length === 0) {
             return alert("Adicione ao menos uma tag")
         }
-
+        
+        if(rating > 5 || rating <= 0) {
+            return alert("A nota precisa estar entre 1 e 5")
+        }
 
         await api.post("/movie_notes", {
             title,
@@ -63,7 +63,7 @@ export function NewMovie() {
             movie_tags: tags
         });
 
-        alert("Nota criada com sucesso!");
+        alert("Filme adicionado!");
         handleBackSignIn();
     }
 

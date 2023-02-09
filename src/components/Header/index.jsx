@@ -1,5 +1,5 @@
 import { Container, Profile, Span } from "./styles";
-import { Input } from "../Input";
+import { useNavigate } from "react-router-dom";
 import { TitlePage } from "../TitlePage";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
@@ -7,6 +7,7 @@ import { api } from "../../services/api";
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 export function Header({children}) {
+    const navigate = useNavigate();
 
     const { signOut, user } = useAuth();
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
@@ -14,6 +15,7 @@ export function Header({children}) {
     function handleLogout() {
     const confirm = window.confirm("Tem certeza que deseja sair ?")
         if(confirm){
+            navigate("/");
             signOut();
         }
     }
