@@ -23,6 +23,8 @@
 ****Frontend:**** **React** - *Styled-components*, *Vite*,
 *React-router-dom*, React-icons.
 
+Deploy: https://notesmovies-jmouradev.netlify.app/
+
 Pages:
 
 ![Captura de tela_20230210_133743](https://user-images.githubusercontent.com/72841857/218150101-91e2d6b7-7956-4aa9-9ca3-b85f0f54bf0f.png)
