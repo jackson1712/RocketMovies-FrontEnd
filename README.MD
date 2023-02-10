@@ -2,9 +2,10 @@
 
 - **Aplicattion to follow all about movies assisted**
 
-- Rating according to your movie rating
-- Filter tags made for easy searching
+- Rating according to your movie rating;
+- Filter tags made for easy searching;
 
+- **Aplication to desktop**;
 
 
 
@@ -12,20 +13,19 @@
 
 ## Code Versioning
 
-- **GIT**
-- **GITHUB**
+- **GIT**;
+- **GITHUB**;
 
 
 ## Tech used
 
 
 ****Frontend:**** **React** - *Styled-components*, *Vite*,
-*React-router-dom*, React-icons.
+*React-router-dom*, React-icons.;
 
-Deploy: https://notesmovies-jmouradev.netlify.app/
+Deploy: https://notesmovies-jmouradev.netlify.app/;
 
 Pages:
-
 ![Captura de tela_20230210_133743](https://user-images.githubusercontent.com/72841857/218150101-91e2d6b7-7956-4aa9-9ca3-b85f0f54bf0f.png)
 
 ![Captura de tela_20230210_133758](https://user-images.githubusercontent.com/72841857/218150172-279b230a-6c8c-482d-aadc-4442286586e2.png)
