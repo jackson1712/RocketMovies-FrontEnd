@@ -25,6 +25,7 @@ export function MovieDetails() {
     const navigate = useNavigate();
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder
 
+
     function handleBackHome() {
         return navigate(-1)
     }
@@ -73,7 +74,7 @@ export function MovieDetails() {
             <Profile>
                     <img src={avatarUrl} alt="foto do perfil" />
                     <strong>{`By : ${user.name}`}</strong>
-                    <span><TfiTime/>{data.updated_at}</span>
+                    <span><TfiTime/>{data.created_at}</span>
             </Profile>
 
                 {

@@ -43,8 +43,8 @@ export function SignIn() {
                 />
                 </main>
 
-                <Button 
-                title="Entrar" 
+                <Button
+                title="Entrar"
                 onClick={handleSignIn}
                 />
                 

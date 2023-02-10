@@ -2,7 +2,6 @@ import { api } from "../../services/api";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 import { Container, NewMovie, Content, Menu } from "./styles";
 import { FiAlertTriangle } from "react-icons/fi";
 import { RxPlus } from "react-icons/rx";
@@ -18,6 +17,8 @@ export function Home() {
 
     const [tags, setTags] = useState([]);
     const [tagsSelected, setTagsSelected] = useState([]);
+
+
 
     function handleTagSelected(tagName) {
         if(tagName === "all") {
@@ -38,7 +39,6 @@ export function Home() {
     function handleMovieDetails(id) {
         navigate(`/details/${id}`)
     }
-
 
     useEffect(() => {
         async function fetchTags(){
@@ -76,7 +76,7 @@ export function Home() {
             <Content>
             <header>
                 <h1>Meus filmes</h1>
-                <NewMovie to="/newmovie"><RxPlus/>Adicionar filme</NewMovie>
+                <NewMovie to="/newmovie" onChange={e => setCarregando(e.target.value)}><RxPlus/>Adicionar filme</NewMovie>
             </header>
 
             <Menu>
