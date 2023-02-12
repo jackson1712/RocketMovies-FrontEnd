@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { api } from "../../services/api";
 import { motion } from "framer-motion";
+import { RotatingLines } from "react-loader-spinner";
 
 import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
@@ -13,18 +14,20 @@ export function SignUp() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
     function handleSignUp(){
         if(!name || !email || !password) {
             return alert("Preencha todos os campos!");
         }
 
-        api.post("/users", {name, email, password})
-        .then(() => {
-            alert("Conta criada com sucesso!")
-            navigate(-1)
-        })
-        .catch(error => {
+            setLoading(true)
+            api.post("/users", {name, email, password})
+            .then(() => {
+                setLoading(false)
+                alert("Conta criada com sucesso!")
+                navigate(-1)
+        }).catch(error => {
             if(error.response){
                 alert(error.response.data.message);
             }else{
@@ -79,19 +82,36 @@ export function SignUp() {
 
                 </main>
 
-                <Button 
-                title="Cadastrar" 
-                onClick={handleSignUp}
-                />
+                {loading ? 
+                (
+                    <div className="loading">
+                    <RotatingLines
+                    strokeColor="#FF859B"
+                    strokeWidth="5"
+                    animationDuration="0.75"
+                    width="96"
+                    visible={true}
+                    />
+                    </div>
+                ) : (
+                <>
+                    <Button 
+                    title="Cadastrar" 
+                    onClick={handleSignUp}
+                    />
 
-                <footer>
-                <ButtonText
-                icon={FiArrowLeft} 
-                title="Voltar para login" 
-                className="return"
-                onClick={handleBackSignIn}
-                />
-                </footer>
+                    <footer>
+                    <ButtonText
+                    icon={FiArrowLeft} 
+                    title="Voltar para login" 
+                    className="return"
+                    onClick={handleBackSignIn}
+                    />
+                    </footer>
+                    </>
+                )
+                }
+
             </Form>
 
             </motion.div>

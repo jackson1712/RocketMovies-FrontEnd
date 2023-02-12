@@ -67,6 +67,10 @@ export const Form = styled.form`
             margin: 0 auto;
         }
     }
+
+    .loading{
+        margin: auto;
+    }
 `;
 
 export const Background = styled.div`
