@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../hooks/auth";
 
+import { motion } from "framer-motion";
 import { FiArrowLeft, FiCamera } from "react-icons/fi";
 import { FiUser, FiMail, FiLock } from "react-icons/fi"
 import { Container, Form, Avatar } from "./styles";
@@ -25,7 +26,7 @@ export function Profile() {
     const [avatar, setAvatar] = useState(avatarUrl);
     const [avatarFile, setAvatarFile] = useState(null);
 
-    async function handleUpdate() {
+    async function handleUpdated() {
         const updated = {
             name,
             email,
@@ -54,6 +55,13 @@ export function Profile() {
 
 
     return(
+        <motion.div
+            initial={{ y: -100 }}
+            animate={{ y: 0 }}
+            transition={{ duration: .5 }}
+
+
+        >
         <Container>
             <header>
                 <ButtonText 
@@ -113,9 +121,10 @@ export function Profile() {
             />
             </div>
 
-            <Button title="Salvar" onClick={handleUpdate} />
+            <Button title="Salvar" onClick={handleUpdated} />
 
             </Form>
         </Container>
+        </motion.div>
     )
 }

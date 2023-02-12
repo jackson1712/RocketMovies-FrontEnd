@@ -1,17 +1,21 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { api } from "../services/api";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
   const [data, setData] = useState({});
-
+  const [isLoading, setIsLoading] = useState(false);
   
   async function signIn ({ email, password }) {
     
+    
     try {
-      const response = await api.post("/sessions", { email, password });
+      setIsLoading(true)
+      const response = await api.post("/sessions", { email, password })
       const { user, token } = response.data;
+      setIsLoading(false)
       
       localStorage.setItem("@notesmovies:user", JSON.stringify(user));
       localStorage.setItem("@notesmovies:token", token);
@@ -19,13 +23,24 @@ function AuthProvider({ children }) {
       api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       setData({ user, token });
 
+      toast.success(`Bem vindo: ${user.name} 😁`, {
+        position: toast.POSITION.TOP_CENTER
+      });
+
     } catch (error) {
+      setIsLoading(false)
+
       if(error.response){
-        alert(error.response.data.message)
+        toast.error(`${error.response.data.message} 😞`, {
+          position: toast.POSITION.TOP_CENTER
+        });
       } else {
-        alert("Não foi possível entrar.")
+        toast.error(`Não foi possível entrar. 😞`, {
+          position: toast.POSITION.TOP_CENTER
+        });
       }
     }
+    
   }
 
   function signOut() {
@@ -50,13 +65,17 @@ function AuthProvider({ children }) {
       localStorage.setItem("@notesmovies:user", JSON.stringify(user));
 
       setData({ user, token: data.token});
-      alert("Perfil atualizado!")
+      toast.success(`Perfil atualizado! 👤` , {
+        position: toast.POSITION.TOP_CENTER
+      });
 
     } catch(error) {
       if(error.response) {
         alert(error.response.data.message)
       } else{
-        alert("Não foi possível atualizar o perfil.")
+        toast.error(`Não foi possível atualizar o perfil. 😞`, {
+          position: toast.POSITION.TOP_CENTER
+        });
       }
     }
   }
@@ -80,6 +99,7 @@ function AuthProvider({ children }) {
       value={{ 
         signIn, 
         signOut,
+        isLoading,
         updatedProfile,
         user: data.user
         }}

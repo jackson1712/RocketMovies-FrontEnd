@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { api } from "../../services/api";
+import { motion } from "framer-motion";
 
 import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
@@ -40,6 +41,14 @@ export function SignUp() {
 
     return(
         <Container>
+
+            <motion.div
+            className="transitionAnimate"
+            initial={{ rotate: 180, opacity: 0, scale: .5 }}
+            animate={{ rotate: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: .3 }}
+            >
+
             <Form>
                 <h1>RocketMovies</h1>
                 <p>Aplicação para acompanhar tudo que assistir.</p>
@@ -85,6 +94,7 @@ export function SignUp() {
                 </footer>
             </Form>
 
+            </motion.div>
             <Background/>
         </Container>
     )

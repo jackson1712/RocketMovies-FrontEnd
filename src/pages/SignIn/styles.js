@@ -6,6 +6,10 @@ export const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
+
+    .transitionAnimate{
+        margin: auto;
+    }
 `;
 
 export const Form = styled.form`
@@ -60,6 +64,10 @@ export const Form = styled.form`
     .createAccount {
         color: ${({ theme }) => theme.COLORS.PINK};
     }
+    }
+
+    .loading {
+        margin: auto;
     }
 `;
 

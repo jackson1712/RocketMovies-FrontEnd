@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: "https://notesmovies-jmouradev.netlify.app/"
+    // baseURL: "http://localhost:3333"
+    baseURL: "https://notesmovies-api.onrender.com"
 });
 

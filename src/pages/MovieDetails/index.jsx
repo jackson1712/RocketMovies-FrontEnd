@@ -2,6 +2,7 @@ import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
 
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
+import { motion } from 'framer-motion';
 
 import { FiArrowLeft, FiTrash2, FiBookOpen, FiCornerRightDown } from 'react-icons/fi';
 import { TfiTime } from 'react-icons/tfi';
@@ -58,6 +59,11 @@ export function MovieDetails() {
             {
                 data &&
             <main>
+            <motion.div
+                initial={{ x: 100 }}
+                animate={{ x: 0 }}
+                transition={{ duration: .4 }}   
+            >
             <Content>
 
             <ButtonText 
@@ -99,6 +105,7 @@ export function MovieDetails() {
             onClick={handleDelete}
             />
             </Content>
+            </motion.div>
             </main>
             }
         </Container>

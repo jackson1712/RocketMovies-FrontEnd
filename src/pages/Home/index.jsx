@@ -2,6 +2,8 @@ import { api } from "../../services/api";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { motion } from "framer-motion";
+
 import { Container, NewMovie, Content, Menu } from "./styles";
 import { FiAlertTriangle } from "react-icons/fi";
 import { RxPlus } from "react-icons/rx";
@@ -10,6 +12,7 @@ import { Note } from "../../components/Note";
 import { ButtonTag } from "../../components/ButtonTag";
 
 export function Home() {
+
     const navigate = useNavigate();
 
     const [search, setSearch] = useState("");
@@ -36,6 +39,7 @@ export function Home() {
 
     }
 
+
     function handleMovieDetails(id) {
         navigate(`/details/${id}`)
     }
@@ -59,9 +63,10 @@ export function Home() {
         fetchNotes();
     }, [tagsSelected, search]);
 
-    return(
-        <Container>
 
+    return(
+
+        <Container>
         <Header>
             <input 
             type="text" 
@@ -72,7 +77,13 @@ export function Home() {
 
 
 
+
         <main>
+        <motion.div
+        initial={{ y: -200}}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        >
             <Content>
             <header>
                 <h1>Meus filmes</h1>
@@ -120,8 +131,10 @@ export function Home() {
             }
 
             </Content>
+        </motion.div>
         </main>
 
         </Container>
+
     )
 }

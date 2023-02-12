@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+import { toast } from "react-toastify";
+import { motion } from "framer-motion";
+
 import { Container, Form } from "./styles";
 import { Header } from "../../components/Header";
 import { Section } from "../../components/Section";
@@ -40,20 +43,27 @@ export function NewMovie() {
 
     async function handleNewMovie() {
         if(newTag) {
-            return alert("O último campo de tags está incompleto, adicione o campo ou deixo-o vazio para completar.")
-        }
-        
+            return  toast.error(`O último campo de tags está incompleto, adicione o campo ou deixo-o vazio para completar.` , {
+                position: toast.POSITION.TOP_CENTER
+          });
+        }    
         
         if(!title || !description || !rating) {
-            return alert("Complete todos os campos para poder salvar as anotações.")
+            return  toast.error(`Complete todos os campos para poder salvar as anotações.` , {
+                position: toast.POSITION.TOP_CENTER
+          });
         }
         
         if(tags.length === 0) {
-            return alert("Adicione ao menos uma tag")
+            return  toast.error(`Adicione ao menos uma tag.` , {
+                position: toast.POSITION.TOP_CENTER
+          });
         }
         
         if(rating > 5 || rating <= 0) {
-            return alert("A nota precisa estar entre 1 e 5")
+            return  toast.error(`A nota precisa estar entre 1 e 5.` , {
+                    position: toast.POSITION.TOP_CENTER
+              });
         }
 
         await api.post("/movie_notes", {
@@ -63,8 +73,12 @@ export function NewMovie() {
             movie_tags: tags
         });
 
-        alert("Filme adicionado!");
-        handleBackSignIn();
+        toast.success(`Filme Adicionado! 🎥` , {
+            position: toast.POSITION.TOP_CENTER
+          });
+        setTimeout(() => {
+            handleBackSignIn();
+        }, 1000) 
     }
 
     return(
@@ -74,6 +88,11 @@ export function NewMovie() {
             </Header>
 
             <main>
+            <motion.div
+            initial={{ opacity: 0, scale: 0.5}}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{duration: 0.4 }}
+            >
             <ButtonText 
             onClick={handleBackSignIn} 
             className="return"
@@ -142,7 +161,9 @@ export function NewMovie() {
 
             </footer>
             </Form>
+            </motion.div>
             </main>
+            
         </Container>
     );
 }

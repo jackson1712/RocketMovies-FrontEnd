@@ -8,7 +8,12 @@ export const Container = styled.div`
     display: flex;
     
     align-items: stretch;
-    `;
+
+    .transitionAnimate{
+        margin: auto;
+    }
+`;
+    
 
 export const Form = styled.form`
     display: flex;

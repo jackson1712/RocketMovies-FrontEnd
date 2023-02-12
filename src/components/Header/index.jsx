@@ -1,3 +1,4 @@
+
 import { Container, Profile, Span } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { TitlePage } from "../TitlePage";
