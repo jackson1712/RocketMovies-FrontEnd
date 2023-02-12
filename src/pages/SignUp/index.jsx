@@ -82,7 +82,7 @@ export function SignUp() {
 
                 </main>
 
-                {loading ? 
+                {loading ?
                 (
                     <div className="loading">
                     <RotatingLines
