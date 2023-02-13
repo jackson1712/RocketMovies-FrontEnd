@@ -53,15 +53,16 @@ function AuthProvider({ children }) {
   async function updatedProfile({ user, avatarFile }) {
     try{
       
+      setIsLoading(true)
       if(avatarFile) {
         const fileUploadForm = new FormData();
         fileUploadForm.append("avatar", avatarFile);
 
         const response = await api.patch("/users/avatar", fileUploadForm);
         user.avatar = response.data.avatar;
+        setIsLoading(false)
       }
 
-      setIsLoading(true)
       await api.put("/users", user);
       localStorage.setItem("@notesmovies:user", JSON.stringify(user));
 
