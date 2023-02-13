@@ -14,18 +14,22 @@ import { Input } from "../../components/Input";
 
 import { FiArrowLeft } from "react-icons/fi";
 import { api } from "../../services/api";
+import { RotatingLines } from "react-loader-spinner";
 
 export function NewMovie() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [rating, setRating] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const [tags, setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
 
     function handleAddTag() {
         if(!newTag) {
-            return alert("Não é possível adicionar tag vazia!")
+            return toast("Não é possível adicionar tag vazia!", {
+                position: toast.POSITION.TOP_CENTER
+            });
         }
         setTags(prevState => [...prevState, newTag]);
         setNewTag("");
@@ -66,12 +70,14 @@ export function NewMovie() {
               });
         }
 
+        setLoading(true);
         await api.post("/movie_notes", {
             title,
             description,
             rating,
             movie_tags: tags
         });
+        setLoading(false);
 
         toast.success(`Filme Adicionado! 🎥` , {
             position: toast.POSITION.TOP_CENTER
@@ -93,12 +99,18 @@ export function NewMovie() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{duration: 0.4 }}
             >
-            <ButtonText 
-            onClick={handleBackSignIn} 
-            className="return"
-            title="Voltar"
-            icon={FiArrowLeft}
-            />
+            {loading ? (
+            <div className="hide"/>) 
+            :
+            (
+                <ButtonText 
+                onClick={handleBackSignIn} 
+                title="Voltar"
+                icon={FiArrowLeft}
+                />
+            )
+            }
+
 
             <h1>Novo filme</h1>
 
@@ -148,18 +160,37 @@ export function NewMovie() {
                     </div>
                 </Section>
 
-            <footer>
-                <Button 
-                title="Cancelar"
-                onClick={handleBackSignIn} 
-                />
-                
-                <Button 
-                title="Salvar alterações" 
-                onClick={handleNewMovie}
-                />
+            {
+                loading ? 
 
-            </footer>
+                (
+                    <div className="loading">
+                        <RotatingLines
+                        strokeColor="#FF859B"
+                        strokeWidth="5"
+                        animationDuration="0.75"
+                        width="96"
+                        visible={true}
+                        />
+                    </div>
+                )
+            
+                : (
+                <footer>
+                    <Button 
+                    title="Cancelar"
+                    onClick={handleBackSignIn} 
+                    />
+                    
+                    <Button 
+                    title="Salvar alterações" 
+                    onClick={handleNewMovie}
+                    />
+
+                </footer>
+                )
+            }
+
             </Form>
             </motion.div>
             </main>

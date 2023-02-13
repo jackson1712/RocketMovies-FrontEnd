@@ -38,6 +38,10 @@ export const Container = styled.div`
         h1 {
         margin-top: 2.4rem;
         margin-bottom: 4rem;
+
+        .hide{
+            display: none;
+        }
     }
 
     ::-webkit-scrollbar{
@@ -92,6 +96,10 @@ export const Form = styled.form`
         background-color: ${({ theme }) => theme.COLORS.PINK};
         border-radius: .8rem;
     }
+    }
+
+    .loading{
+        margin: auto;
     }
 
     > footer {

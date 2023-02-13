@@ -61,18 +61,22 @@ function AuthProvider({ children }) {
         user.avatar = response.data.avatar;
       }
 
+      setIsLoading(true)
       await api.put("/users", user);
       localStorage.setItem("@notesmovies:user", JSON.stringify(user));
 
       setData({ user, token: data.token});
+      setIsLoading(false)
       toast.success(`Perfil atualizado! 👤` , {
         position: toast.POSITION.TOP_CENTER
       });
 
     } catch(error) {
       if(error.response) {
+        setIsLoading(false)
         alert(error.response.data.message)
       } else{
+        setIsLoading(false)
         toast.error(`Não foi possível atualizar o perfil. 😞`, {
           position: toast.POSITION.TOP_CENTER
         });
