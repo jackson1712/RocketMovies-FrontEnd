@@ -26,7 +26,7 @@ export function SignUp() {
             .then(() => {
                 setLoading(false)
                 toast("Conta criada com sucesso!", {
-                    position: toast.TOP_CENTER
+                    position: toast.POSITION.TOP_CENTER
                 });
                 navigate(-1)
             })
@@ -39,7 +39,7 @@ export function SignUp() {
             }else{
                 setLoading(false)
                 toast("Não foi possível cadastrar usuário", {
-                    position: toast.TOP_CENTER
+                    position: toast.POSITION.TOP_CENTER
                 });
             }
         });
