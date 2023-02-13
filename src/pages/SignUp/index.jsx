@@ -2,6 +2,7 @@ import { useState } from "react";
 import { api } from "../../services/api";
 import { motion } from "framer-motion";
 import { RotatingLines } from "react-loader-spinner";
+import { toast } from "react-toastify";
 
 import { Container, Form, Background } from "./styles";
 import { Input } from "../../components/Input";
@@ -20,17 +21,21 @@ export function SignUp() {
         if(!name || !email || !password) {
             return alert("Preencha todos os campos!");
         }
-
             setLoading(true)
             api.post("/users", {name, email, password})
             .then(() => {
                 setLoading(false)
                 alert("Conta criada com sucesso!")
                 navigate(-1)
-        }).catch(error => {
+            })
+            .catch(error => {
             if(error.response){
-                alert(error.response.data.message);
+                toast.error(`${error.response.data.message} 😞`, {
+                    position: toast.POSITION.TOP_CENTER
+                });
+                setLoading(false)
             }else{
+                setLoading(false)
                 alert("Não foi possível cadastrar usuário")
             }
         });
