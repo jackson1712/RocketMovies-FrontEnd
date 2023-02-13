@@ -99,6 +99,9 @@ export const Form = styled.form`
     }
 
     .loading{
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: auto;
     }
 
