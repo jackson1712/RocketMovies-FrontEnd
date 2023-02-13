@@ -14,14 +14,11 @@ export const Container = styled.div`
         background-color: ${({ theme }) => theme.COLORS.PINK_LIGHT};
         gap: .8rem;
 
+
         button {
-            color: ${({ theme }) => theme.COLORS.PINK};
-
+            position: fixed;
+            left: 10rem;
         }
-        svg {
-            color: ${({ theme }) => theme.COLORS.PINK};
-        }
-
     }
 `;
 
@@ -49,6 +46,12 @@ export const Form = styled.form`
             color: ${({ theme }) => theme.COLORS.GRAY_300};
         }
     }
+
+    .loading{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;
 
 export const Avatar = styled.div`
@@ -60,6 +63,7 @@ export const Avatar = styled.div`
         border-radius: 50%;
         width: 18rem;
         height: 18rem;
+        margin-left: 2rem;
     }
 
     > label {

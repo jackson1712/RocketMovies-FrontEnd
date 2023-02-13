@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 import { api } from "../../services/api";
+import { RotatingLines } from "react-loader-spinner";
 
 export function Profile() {
     const { user, updatedProfile } = useAuth();
@@ -21,12 +22,15 @@ export function Profile() {
     const [oldPassword, setOldPassword] = useState("");
     const [newPassword, setNewPassword] = useState("");
 
+    const [loading, setLoading] = useState(false);
+
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
     const [avatar, setAvatar] = useState(avatarUrl);
     const [avatarFile, setAvatarFile] = useState(null);
 
     async function handleUpdated() {
+        setLoading(true);
         const updated = {
             name,
             email,
@@ -37,6 +41,7 @@ export function Profile() {
         const userUpdated = Object.assign(user, updated);
 
         await updatedProfile({ user: userUpdated, avatarFile });
+        setLoading(false);
     }
 
     function handleChangeAvatar(event) {
@@ -68,6 +73,7 @@ export function Profile() {
                 icon={FiArrowLeft} 
                 title="Voltar" 
                 onClick={handleBackSignIn}
+                className="return"
                 />
             </header>
 
@@ -121,8 +127,27 @@ export function Profile() {
             />
             </div>
 
-            <Button title="Salvar" onClick={handleUpdated} />
-
+            {
+            loading ? 
+            ( 
+            <div className="loading">
+                <RotatingLines
+                strokeColor="#FF859B"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="96"
+                visible={true}
+                />
+            </div>
+            ) 
+            :
+            (
+            <Button 
+            title="Salvar" 
+            onClick={handleUpdated} 
+            />
+            )
+            }
             </Form>
         </Container>
         </motion.div>
