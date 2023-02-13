@@ -30,10 +30,10 @@ export function SignUp() {
             })
             .catch(error => {
             if(error.response){
+                setLoading(false)
                 toast.error(`${error.response.data.message} 😞`, {
                     position: toast.POSITION.TOP_CENTER
                 });
-                setLoading(false)
             }else{
                 setLoading(false)
                 alert("Não foi possível cadastrar usuário")
