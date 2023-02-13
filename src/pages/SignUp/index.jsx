@@ -25,7 +25,9 @@ export function SignUp() {
             api.post("/users", {name, email, password})
             .then(() => {
                 setLoading(false)
-                alert("Conta criada com sucesso!")
+                toast("Conta criada com sucesso!", {
+                    position: toast.TOP_CENTER
+                });
                 navigate(-1)
             })
             .catch(error => {
@@ -36,7 +38,9 @@ export function SignUp() {
                 });
             }else{
                 setLoading(false)
-                alert("Não foi possível cadastrar usuário")
+                toast("Não foi possível cadastrar usuário", {
+                    position: toast.TOP_CENTER
+                });
             }
         });
     }

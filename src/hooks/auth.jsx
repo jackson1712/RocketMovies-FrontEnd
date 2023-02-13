@@ -55,6 +55,7 @@ function AuthProvider({ children }) {
       
       setIsLoading(true)
       if(avatarFile) {
+        setIsLoading(true)
         const fileUploadForm = new FormData();
         fileUploadForm.append("avatar", avatarFile);
 
@@ -75,7 +76,9 @@ function AuthProvider({ children }) {
     } catch(error) {
       if(error.response) {
         setIsLoading(false)
-        alert(error.response.data.message)
+        toast(error.response.data.message, {
+          position: toast.POSITION.TOP_CENTER
+        });
       } else{
         setIsLoading(false)
         toast.error(`Não foi possível atualizar o perfil. 😞`, {

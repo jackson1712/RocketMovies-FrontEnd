@@ -82,9 +82,7 @@ export function NewMovie() {
         toast.success(`Filme Adicionado! 🎥` , {
             position: toast.POSITION.TOP_CENTER
           });
-        setTimeout(() => {
             handleBackSignIn();
-        }, 1000) 
     }
 
     return(
